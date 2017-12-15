@@ -17,7 +17,7 @@ class DataService {
     public private(set) var REF_GROUPS = DB_BASE.child("groups")
     public private(set) var _REF_FEED = DB_BASE.child("feed")
     
-    func createDBUser(uid: String, userData: Dictionary<String, Any>) {
+    func createDBUser(uid: String, userData: [String: Any]) {
         REF_BASE.child(uid).updateChildValues(userData)
     }
 }
