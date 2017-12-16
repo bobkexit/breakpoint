@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 
 typealias AuthCompletionHandler = (_ success: Bool,_ error: Error?) -> Void
+typealias CompletionHandler = (_ success: Bool) -> Void
+
 // Data Base
 let DB_BASE = Database.database().reference()
 
@@ -19,3 +21,11 @@ let SB_LoginVC = "LoginVC"
 
 let SEGUE_ToCreateAccount = "ToCreateAccount"
 let UNWIND = "ToFeedVC"
+
+// Place holders
+let PLACEHOLDER_FOR_TEXTVIEW = "Type here..."
+
+// Table cells
+let FEED_CELL = "feedCell"
+let GROUP_CELL = "groupCell"
+let USER_CELL = "userCell"

@@ -30,7 +30,7 @@ class CreateAccountVC: UIViewController {
         }
         AuthService.instance.registerUser(withEmail: emailField.text!, andPassword: passwordField.text!) { (success, error) in
             if success {
-                AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, completionHandler: { (success, error) in
+                AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, completion: { (success, error) in
                     if (success) {
                         self.performSegue(withIdentifier: UNWIND, sender: nil)
                     } else {

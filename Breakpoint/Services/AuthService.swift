@@ -12,22 +12,22 @@ import Firebase
 class AuthService {
     static var instance = AuthService()
     
-    func registerUser(withEmail email: String, andPassword password: String, completionHandler: @escaping AuthCompletionHandler) {
+    func registerUser(withEmail email: String, andPassword password: String, completion: @escaping AuthCompletionHandler) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let user = user else {
-                completionHandler(false, error)
+                completion(false, error)
                 return
             }
             let userData: [String: Any] = ["provider": user.providerID,
                                            "email": user.email!]
             DataService.instance.createDBUser(uid: user.uid, userData: userData)
-            completionHandler(true, nil)
+            completion(true, nil)
         }
     }
     
-    func loginUser(withEmail email: String, andPassword password: String, completionHandler: @escaping AuthCompletionHandler) {
+    func loginUser(withEmail email: String, andPassword password: String, completion: @escaping AuthCompletionHandler) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            completionHandler((error == nil), error)
+            completion((error == nil), error)
         }
     }
 }

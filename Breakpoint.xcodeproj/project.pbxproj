@@ -16,6 +16,14 @@
 		356C75BC1FE42701007C86B5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75BB1FE42701007C86B5 /* AuthService.swift */; };
 		356C75BE1FE449F5007C86B5 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75BD1FE449F5007C86B5 /* CreateAccountVC.swift */; };
 		356C75C01FE47483007C86B5 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75BF1FE47483007C86B5 /* UITextFieldExt.swift */; };
+		356C75C21FE509DE007C86B5 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75C11FE509DE007C86B5 /* UIViewExt.swift */; };
+		356C75C41FE51348007C86B5 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75C31FE51348007C86B5 /* MeVC.swift */; };
+		356C75C61FE515E7007C86B5 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75C51FE515E7007C86B5 /* CreatePostVC.swift */; };
+		356C75C81FE526ED007C86B5 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75C71FE526ED007C86B5 /* FeedCell.swift */; };
+		356C75CA1FE5270A007C86B5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75C91FE5270A007C86B5 /* UserCell.swift */; };
+		356C75CC1FE5271B007C86B5 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75CB1FE5271B007C86B5 /* GroupCell.swift */; };
+		356C75CE1FE52D9E007C86B5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75CD1FE52D9E007C86B5 /* Message.swift */; };
+		356C75D01FE5A39C007C86B5 /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75CF1FE5A39C007C86B5 /* CreateGroupVC.swift */; };
 		35E103041FE3C2FC00FE71A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E103031FE3C2FC00FE71A1 /* AppDelegate.swift */; };
 		35E103061FE3C2FC00FE71A1 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E103051FE3C2FC00FE71A1 /* FeedVC.swift */; };
 		35E103081FE3C2FC00FE71A1 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E103071FE3C2FC00FE71A1 /* GroupsVC.swift */; };
@@ -37,6 +45,14 @@
 		356C75BB1FE42701007C86B5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		356C75BD1FE449F5007C86B5 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		356C75BF1FE47483007C86B5 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
+		356C75C11FE509DE007C86B5 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		356C75C31FE51348007C86B5 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		356C75C51FE515E7007C86B5 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		356C75C71FE526ED007C86B5 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		356C75C91FE5270A007C86B5 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		356C75CB1FE5271B007C86B5 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		356C75CD1FE52D9E007C86B5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		356C75CF1FE5A39C007C86B5 /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
 		35E103001FE3C2FC00FE71A1 /* Breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E103031FE3C2FC00FE71A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E103051FE3C2FC00FE71A1 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -107,6 +123,9 @@
 				356C75B31FE41AD9007C86B5 /* AuthVC.swift */,
 				356C75B51FE41CB0007C86B5 /* LoginVC.swift */,
 				356C75BD1FE449F5007C86B5 /* CreateAccountVC.swift */,
+				356C75C31FE51348007C86B5 /* MeVC.swift */,
+				356C75C51FE515E7007C86B5 /* CreatePostVC.swift */,
+				356C75CF1FE5A39C007C86B5 /* CreateGroupVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -116,6 +135,9 @@
 			children = (
 				356C75B71FE41D3B007C86B5 /* InsetTextField.swift */,
 				356C75B91FE4212B007C86B5 /* ShadowView.swift */,
+				356C75C71FE526ED007C86B5 /* FeedCell.swift */,
+				356C75C91FE5270A007C86B5 /* UserCell.swift */,
+				356C75CB1FE5271B007C86B5 /* GroupCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +145,7 @@
 		35E103191FE3C7ED00FE71A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				356C75CD1FE52D9E007C86B5 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				356C75BF1FE47483007C86B5 /* UITextFieldExt.swift */,
+				356C75C11FE509DE007C86B5 /* UIViewExt.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -293,16 +317,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356C75C21FE509DE007C86B5 /* UIViewExt.swift in Sources */,
 				356C75BA1FE4212B007C86B5 /* ShadowView.swift in Sources */,
 				356C75B41FE41AD9007C86B5 /* AuthVC.swift in Sources */,
 				356C75BE1FE449F5007C86B5 /* CreateAccountVC.swift in Sources */,
+				356C75CA1FE5270A007C86B5 /* UserCell.swift in Sources */,
 				356C75C01FE47483007C86B5 /* UITextFieldExt.swift in Sources */,
+				356C75C61FE515E7007C86B5 /* CreatePostVC.swift in Sources */,
+				356C75CE1FE52D9E007C86B5 /* Message.swift in Sources */,
+				356C75D01FE5A39C007C86B5 /* CreateGroupVC.swift in Sources */,
 				35E103081FE3C2FC00FE71A1 /* GroupsVC.swift in Sources */,
 				356C75B61FE41CB0007C86B5 /* LoginVC.swift in Sources */,
+				356C75CC1FE5271B007C86B5 /* GroupCell.swift in Sources */,
 				356C75B81FE41D3B007C86B5 /* InsetTextField.swift in Sources */,
 				35E103041FE3C2FC00FE71A1 /* AppDelegate.swift in Sources */,
 				35E103061FE3C2FC00FE71A1 /* FeedVC.swift in Sources */,
+				356C75C41FE51348007C86B5 /* MeVC.swift in Sources */,
 				356C75BC1FE42701007C86B5 /* AuthService.swift in Sources */,
+				356C75C81FE526ED007C86B5 /* FeedCell.swift in Sources */,
 				35E1031E1FE3FD6200FE71A1 /* Constants.swift in Sources */,
 				356C75B21FE40333007C86B5 /* DataService.swift in Sources */,
 			);
