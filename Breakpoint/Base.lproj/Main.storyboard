@@ -291,16 +291,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lch-ue-08d">
-                                <rect key="frame" x="20" y="90" width="335" height="186.5"/>
+                                <rect key="frame" x="20" y="90" width="335" height="205.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hph-bk-oum">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="25"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
                                         <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="group title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EM7-4H-USu" customClass="InsetTextField" customModule="Breakpoint" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="25.5" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="335" height="30"/>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="zgA-vm-hcF"/>
@@ -310,36 +310,36 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ql-AG-1h4">
-                                        <rect key="frame" x="0.0" y="60.5" width="335" height="21"/>
+                                        <rect key="frame" x="0.0" y="65" width="335" height="24.5"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
                                         <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="group description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U4T-1L-CXV" customClass="InsetTextField" customModule="Breakpoint" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86.5" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="94.5" width="335" height="30"/>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add users to your group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTj-Aq-03d">
-                                        <rect key="frame" x="0.0" y="121.5" width="335" height="23.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add users to your group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="nTj-Aq-03d">
+                                        <rect key="frame" x="0.0" y="129.5" width="335" height="28.5"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                         <color key="textColor" red="0.015686274510000001" green="0.6705882353" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="enter email.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykv-8u-4ZN" customClass="InsetTextField" customModule="Breakpoint" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="150" width="335" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="163" width="335" height="42.5"/>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.56078431370000004" green="0.81176470590000005" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TQh-0X-wfr">
-                                <rect key="frame" x="20" y="296.5" width="335" height="350.5"/>
-                                <color key="backgroundColor" red="0.32236325739999999" green="0.340342164" blue="0.38857889179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="20" y="315.5" width="335" height="331.5"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="60" id="XL0-le-PaL" customClass="UserCell" customModule="Breakpoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="335" height="60"/>
@@ -405,10 +405,11 @@
                     </view>
                     <connections>
                         <outlet property="descriptionTxtField" destination="U4T-1L-CXV" id="62q-EM-trq"/>
+                        <outlet property="doneBtn" destination="9Fu-nJ-rZN" id="dNK-B7-PcA"/>
+                        <outlet property="emailSearchTxtField" destination="ykv-8u-4ZN" id="0t2-JX-lTl"/>
                         <outlet property="groupMembersLbl" destination="nTj-Aq-03d" id="7aD-ch-NiH"/>
                         <outlet property="tableView" destination="TQh-0X-wfr" id="eRX-eP-DG2"/>
                         <outlet property="titleTxtField" destination="EM7-4H-USu" id="PZX-2d-FAJ"/>
-                        <outlet property="usernameTxtField" destination="ykv-8u-4ZN" id="0t2-JX-lTl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKs-G3-ALy" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -53,15 +53,44 @@ class DataService {
         }
     }
     
+     //TODO: replace with model
     func getEmail(forSearchQuery query: String, completion: @escaping (_ emailArray: [String]) -> ()) {
         var emailArray = [String]()
-        REF_USERS.queryOrdered(byChild: "email").queryStarting(atValue: query).observeSingleEvent(of: .value) { (snapshot) in
+        let ref = REF_USERS.queryOrdered(byChild: "email").queryStarting(atValue: query).queryEnding(atValue: query + "\u{f8ff}")
+        ref.observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
             while let user = enumerator.nextObject() as? DataSnapshot {
                 let email = user.childSnapshot(forPath: "email").value as! String
+                if email == Auth.auth().currentUser?.email {
+                    continue
+                }
                 emailArray.append(email)
             }
+            completion(emailArray)
         }
-        completion(emailArray)
     }
+    
+    //TODO: remove after replace with model
+    func getIDs(forUsernames usernames: [String], completion: @escaping (_ uids: [String]) -> ()) {
+        var uids = [String]()
+        for username in usernames {
+            let ref = REF_USERS.queryOrdered(byChild: "email").queryEqual(toValue: username)
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                let enumerator = snapshot.children
+                while let user = enumerator.nextObject() as? DataSnapshot {
+                    uids.append(user.key)
+                }
+                
+                if uids.count == usernames.count {
+                    completion(uids)
+                }
+            })
+        }
+    }
+    
+    func createGroup(withTitle title: String, andDescription description: String, forUserIds userIds: [String], completion: @escaping CompletionHandler) {
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": userIds])
+        completion(true)
+    }
+    
 }
