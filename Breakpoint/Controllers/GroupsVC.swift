@@ -51,7 +51,8 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
         }
         let group = groups[indexPath.row]
         groupFeedVC.initData(group: group)
-        present(groupFeedVC, animated: true, completion: nil)
+        presentDetail(groupFeedVC)
+        //present(groupFeedVC, animated: true, completion: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -35,6 +35,8 @@
 		35E103101FE3C2FC00FE71A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35E1030E1FE3C2FC00FE71A1 /* LaunchScreen.storyboard */; };
 		35E1031E1FE3FD6200FE71A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E1031D1FE3FD6200FE71A1 /* Constants.swift */; };
 		35E103201FE3FEFE00FE71A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35E1031F1FE3FEFE00FE71A1 /* GoogleService-Info.plist */; };
+		35F1E6861FE948B500951A1B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1E6851FE948B500951A1B /* KeyboardLayoutConstraint.swift */; };
+		35F1E6881FE94F6100951A1B /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1E6871FE94F6100951A1B /* UIViewControllerExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		35E103111FE3C2FC00FE71A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35E1031D1FE3FD6200FE71A1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		35E1031F1FE3FEFE00FE71A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		35F1E6851FE948B500951A1B /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		35F1E6871FE94F6100951A1B /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		366D511A68359DE1915F8A81 /* Pods-Breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breakpoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breakpoint/Pods-Breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +150,7 @@
 				356C75C91FE5270A007C86B5 /* UserCell.swift */,
 				356C75CB1FE5271B007C86B5 /* GroupCell.swift */,
 				356C75D31FE830FC007C86B5 /* GroupFeedCell.swift */,
+				35F1E6851FE948B500951A1B /* KeyboardLayoutConstraint.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			children = (
 				356C75BF1FE47483007C86B5 /* UITextFieldExt.swift */,
 				356C75C11FE509DE007C86B5 /* UIViewExt.swift */,
+				35F1E6871FE94F6100951A1B /* UIViewControllerExt.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -331,6 +337,8 @@
 				356C75BA1FE4212B007C86B5 /* ShadowView.swift in Sources */,
 				356C75B41FE41AD9007C86B5 /* AuthVC.swift in Sources */,
 				356C75BE1FE449F5007C86B5 /* CreateAccountVC.swift in Sources */,
+				35F1E6881FE94F6100951A1B /* UIViewControllerExt.swift in Sources */,
+				35F1E6861FE948B500951A1B /* KeyboardLayoutConstraint.swift in Sources */,
 				356C75CA1FE5270A007C86B5 /* UserCell.swift in Sources */,
 				356C75C01FE47483007C86B5 /* UITextFieldExt.swift in Sources */,
 				356C75C61FE515E7007C86B5 /* CreatePostVC.swift in Sources */,

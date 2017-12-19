@@ -22,8 +22,11 @@ extension UIView {
         
         let deltaY = endFrame.origin.y - startFrame.origin.y
         
-        UIView.animateKeyframes(withDuration: duration, delay: 0, options:  UIViewKeyframeAnimationOptions(rawValue: curve), animations: {
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions(rawValue: curve), animations: {
             self.frame.origin.y += deltaY
-        }, completion: nil)
+        }) { (true) in
+            self.layoutIfNeeded()
+        }
     }
+    
 }

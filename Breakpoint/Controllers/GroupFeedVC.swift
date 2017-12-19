@@ -9,17 +9,20 @@
 import UIKit
 import Firebase
 
-class GroupFeedVC: UIViewController {
+class GroupFeedVC: UIViewController, UITextFieldDelegate {
     
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var groupTitleLbl: UILabel!
     @IBOutlet weak var membersLbl: UILabel!
-    @IBOutlet weak var textView: UIView!
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet weak var sendMessageStackView: UIStackView!
+    
+    var refHandle: UInt?
     var group: Group?
     var messages = [Message]()
+    
     
     func initData(group: Group) {
         self.group = group
@@ -28,9 +31,10 @@ class GroupFeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.bindToKeyboard()
         tableView.delegate = self
         tableView.dataSource = self
+        textField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,15 +45,33 @@ class GroupFeedVC: UIViewController {
             self.membersLbl.text = emails.joined(separator: ", ")
         }
         
-        DataService.instance.REF_FEED.observe(.value) { (snapshot) in
+        self.tableView.estimatedRowHeight = 0
+        self.tableView.estimatedSectionHeaderHeight = 0
+        self.tableView.estimatedSectionFooterHeight = 0
+        
+        refHandle = DataService.instance.REF_FEED.observe(.value) { (snapshot) in
             DataService.instance.getFeedMessages(forGroup: self.group!) { (groupMessages) in
                 self.messages = groupMessages
+                self.tableView.reloadData()
+                
+                if self.messages.count > 0 {
+                    self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section: 0), at: .none, animated: true)
+                }
             }
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if let refHandle = refHandle {
+            DataService.instance.REF_FEED.removeObserver(withHandle: refHandle)
+        }
+    }
+    
     @IBAction func backBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        dismissDetail()
     }
     
     @IBAction func sendBtnPressed(_ sender: Any) {
@@ -61,7 +83,10 @@ class GroupFeedVC: UIViewController {
         let groupId = group?.id
         
         DataService.instance.uploadPost(withMessage: message, forUID: senderId!, withGroupKey: groupId) { (success) in
-            
+            if (success) {
+                self.textField.text = ""
+                self.view.endEditing(true)
+            }
         }
     }
 
