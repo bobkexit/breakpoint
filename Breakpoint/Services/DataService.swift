@@ -24,12 +24,16 @@ class DataService {
     }
     
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, completion: @escaping CompletionHandler) {
-        if groupKey != nil {
-            // send to group ref
-        } else {
-            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
-            completion(true)
-        }
+        
+        REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid, "groupId": groupKey as Any])
+        completion(true)
+        
+//        if groupKey != nil {
+//            //REF_GROUPS.child(groupKey!).child("messages").
+//        } else {
+//            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
+//            completion(true)
+//        }
     }
     
     func getFeedMessages(completion: @escaping CompletionHandler) {
@@ -37,12 +41,30 @@ class DataService {
             guard let feedMsgSnapshot = feedMsgSnapshot.children.allObjects as? [DataSnapshot] else { return }
             self.FeedMessages.removeAll()
             for message in feedMsgSnapshot {
+                if message.hasChild("groupId") {
+                    continue
+                }
                 let content = message.childSnapshot(forPath: "content").value as! String
                 let senderId = message.childSnapshot(forPath: "senderId").value as! String
                 let feedMsg = Message(content: content, senderId: senderId)
                 self.FeedMessages.insert(feedMsg, at: 0)
             }
             completion(true)
+        }
+    }
+    
+    func getFeedMessages(forGroup group: Group, completion: @escaping (_ messages: [Message]) -> ()) {
+        var messages = [Message]()
+        let ref = REF_FEED.queryOrdered(byChild: "groupId").queryEqual(toValue: group.id)
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            let enumerator = snapshot.children
+            while let msg = enumerator.nextObject() as? DataSnapshot {
+                let content = msg.childSnapshot(forPath: "content").value as! String
+                let senderId = msg.childSnapshot(forPath: "senderId").value as! String
+                let message = Message(content: content, senderId: senderId)
+                messages.append(message)
+            }
+            completion(messages)
         }
     }
     
@@ -70,6 +92,18 @@ class DataService {
         }
     }
     
+    func getEmails(forGroup group: Group, completion: @escaping (_ emails: [String]) -> ()) {
+        var emails = [String]()
+        group.members.forEach { (id) in
+            getUserName(forUID: id, handler: { (email) in
+                emails.append(email)
+                if emails.count == group.members.count {
+                    completion(emails)
+                }
+            })
+        }
+    }
+    
     //TODO: remove after replace with model
     func getIDs(forUsernames usernames: [String], completion: @escaping (_ uids: [String]) -> ()) {
         var uids = [String]()
@@ -89,8 +123,38 @@ class DataService {
     }
     
     func createGroup(withTitle title: String, andDescription description: String, forUserIds userIds: [String], completion: @escaping CompletionHandler) {
-        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": userIds])
+        //REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": userIds])
+        
+        var members = [String:Bool]()
+        userIds.forEach { (id) in
+            members[id] = true
+        }
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": members])
         completion(true)
+    }
+    
+    func getGroups(forUserId id: String, completion: @escaping (_ groups: [Group]) -> ()) {
+        var groups = [Group]()
+        let ref = REF_GROUPS.queryOrdered(byChild: "members/\(id)").queryEqual(toValue: true)
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            
+            let enumerator = snapshot.children
+            while let group = enumerator.nextObject() as? DataSnapshot {
+                let id = group.key
+                let title = group.childSnapshot(forPath: "title").value as! String
+                let description = group.childSnapshot(forPath: "description").value as! String
+
+                var members = [String]()
+                group.childSnapshot(forPath: "members").children.forEach({ (child) in
+                    let child = child as! DataSnapshot
+                    members.append(child.key)
+                })
+
+                let newGroup = Group(id: id, title: title, description: description, members: members)
+                groups.append(newGroup)
+            }
+            completion(groups)
+        }
     }
     
 }

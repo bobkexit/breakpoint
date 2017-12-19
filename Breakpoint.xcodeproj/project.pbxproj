@@ -24,6 +24,9 @@
 		356C75CC1FE5271B007C86B5 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75CB1FE5271B007C86B5 /* GroupCell.swift */; };
 		356C75CE1FE52D9E007C86B5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75CD1FE52D9E007C86B5 /* Message.swift */; };
 		356C75D01FE5A39C007C86B5 /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75CF1FE5A39C007C86B5 /* CreateGroupVC.swift */; };
+		356C75D21FE7FFE1007C86B5 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75D11FE7FFE1007C86B5 /* Group.swift */; };
+		356C75D41FE830FC007C86B5 /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75D31FE830FC007C86B5 /* GroupFeedCell.swift */; };
+		356C75D61FE83509007C86B5 /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C75D51FE83509007C86B5 /* GroupFeedVC.swift */; };
 		35E103041FE3C2FC00FE71A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E103031FE3C2FC00FE71A1 /* AppDelegate.swift */; };
 		35E103061FE3C2FC00FE71A1 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E103051FE3C2FC00FE71A1 /* FeedVC.swift */; };
 		35E103081FE3C2FC00FE71A1 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E103071FE3C2FC00FE71A1 /* GroupsVC.swift */; };
@@ -53,6 +56,9 @@
 		356C75CB1FE5271B007C86B5 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		356C75CD1FE52D9E007C86B5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		356C75CF1FE5A39C007C86B5 /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
+		356C75D11FE7FFE1007C86B5 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		356C75D31FE830FC007C86B5 /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
+		356C75D51FE83509007C86B5 /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
 		35E103001FE3C2FC00FE71A1 /* Breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E103031FE3C2FC00FE71A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E103051FE3C2FC00FE71A1 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 				356C75C31FE51348007C86B5 /* MeVC.swift */,
 				356C75C51FE515E7007C86B5 /* CreatePostVC.swift */,
 				356C75CF1FE5A39C007C86B5 /* CreateGroupVC.swift */,
+				356C75D51FE83509007C86B5 /* GroupFeedVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -138,6 +145,7 @@
 				356C75C71FE526ED007C86B5 /* FeedCell.swift */,
 				356C75C91FE5270A007C86B5 /* UserCell.swift */,
 				356C75CB1FE5271B007C86B5 /* GroupCell.swift */,
+				356C75D31FE830FC007C86B5 /* GroupFeedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				356C75CD1FE52D9E007C86B5 /* Message.swift */,
+				356C75D11FE7FFE1007C86B5 /* Group.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356C75D21FE7FFE1007C86B5 /* Group.swift in Sources */,
 				356C75C21FE509DE007C86B5 /* UIViewExt.swift in Sources */,
 				356C75BA1FE4212B007C86B5 /* ShadowView.swift in Sources */,
 				356C75B41FE41AD9007C86B5 /* AuthVC.swift in Sources */,
@@ -333,6 +343,8 @@
 				35E103041FE3C2FC00FE71A1 /* AppDelegate.swift in Sources */,
 				35E103061FE3C2FC00FE71A1 /* FeedVC.swift in Sources */,
 				356C75C41FE51348007C86B5 /* MeVC.swift in Sources */,
+				356C75D41FE830FC007C86B5 /* GroupFeedCell.swift in Sources */,
+				356C75D61FE83509007C86B5 /* GroupFeedVC.swift in Sources */,
 				356C75BC1FE42701007C86B5 /* AuthService.swift in Sources */,
 				356C75C81FE526ED007C86B5 /* FeedCell.swift in Sources */,
 				35E1031E1FE3FD6200FE71A1 /* Constants.swift in Sources */,

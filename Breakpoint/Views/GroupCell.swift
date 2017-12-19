@@ -10,18 +10,14 @@ import UIKit
 
 class GroupCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-    func configureCell() {
-        
+    // Outlets
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var countMembersLbl: UILabel!
+    
+    func configureCell(group: Group) {
+        titleLbl.text = group.title
+        descriptionLbl.text = group.description
+        countMembersLbl.text = "\(group.members.count)"
     }
 }

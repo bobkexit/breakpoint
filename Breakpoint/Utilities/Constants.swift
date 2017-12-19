@@ -18,6 +18,7 @@ let DB_BASE = Database.database().reference()
 // Storyboard ids
 let SB_AuthVC = "AuthVC"
 let SB_LoginVC = "LoginVC"
+let SB_GroupFeedVC = "GroupFeedVC"
 
 let SEGUE_ToCreateAccount = "ToCreateAccount"
 let UNWIND = "ToFeedVC"
@@ -29,3 +30,4 @@ let PLACEHOLDER_FOR_TEXTVIEW = "Type here..."
 let FEED_CELL = "feedCell"
 let GROUP_CELL = "groupCell"
 let USER_CELL = "userCell"
+let GROUP_FEED_CELL = "groupFeedCell"
