@@ -15,6 +15,7 @@ class GroupsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // Variables
+    var refHandle: UInt?
     var groups = [Group]()
     
     override func viewDidLoad() {
@@ -26,11 +27,26 @@ class GroupsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DataService.instance.REF_GROUPS.observeSingleEvent(of: .value) { (snapshot) in
+        
+        refHandle = DataService.instance.REF_GROUPS.observe(.value, with: { (snapshot) in
             DataService.instance.getGroups(forUserId: (Auth.auth().currentUser?.uid)!) { (groups) in
                 self.groups = groups
                 self.tableView.reloadData()
             }
+        })
+        
+//        DataService.instance.REF_GROUPS.observeSingleEvent(of: .value) { (snapshot) in
+//            DataService.instance.getGroups(forUserId: (Auth.auth().currentUser?.uid)!) { (groups) in
+//                self.groups = groups
+//                self.tableView.reloadData()
+//            }
+//        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let refHandle = refHandle {
+            DataService.instance.REF_GROUPS.removeObserver(withHandle: refHandle)
         }
     }
 }

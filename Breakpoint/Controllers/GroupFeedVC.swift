@@ -35,6 +35,9 @@ class GroupFeedVC: UIViewController, UITextFieldDelegate {
         tableView.dataSource = self
         textField.delegate = self
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +91,10 @@ class GroupFeedVC: UIViewController, UITextFieldDelegate {
                 self.view.endEditing(true)
             }
         }
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
 
 }

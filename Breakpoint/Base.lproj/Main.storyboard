@@ -837,7 +837,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="signInWithFacebook:" destination="Aeg-ow-XMd" eventType="touchUpInside" id="z22-49-2ma"/>
+                                                    <action selector="signInWithFacebook:" destination="Aeg-ow-XMd" eventType="touchUpInside" id="REn-Sa-Vjr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyj-LN-g3v">
@@ -899,6 +899,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W0i-et-QIL"/>
                     </view>
+                    <connections>
+                        <outlet property="fbSignInBtn" destination="bXm-rD-YeP" id="AuP-T3-uSL"/>
+                        <outlet property="googleSignInBtn" destination="hyj-LN-g3v" id="nD8-GB-rnh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zV8-yZ-JTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

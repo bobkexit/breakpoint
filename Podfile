@@ -9,4 +9,7 @@ target 'Breakpoint' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 end

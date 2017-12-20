@@ -8,10 +8,11 @@
 
 import Foundation
 import Firebase
+import GoogleSignIn
 
 class AuthService {
     static var instance = AuthService()
-    
+        
     func registerUser(withEmail email: String, andPassword password: String, completion: @escaping AuthCompletionHandler) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let user = user else {

@@ -8,16 +8,26 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Firebase config
         FirebaseApp.configure()
+        
+        // Google auth
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
+        //Facebook auth
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -51,6 +61,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+                || FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        
+        if let error = error {
+            displayErrorAlert(title: "Failed sign in with google", error: error)
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                self.displayErrorAlert(title: "Failed sign in with google", error: error)
+            } else {
+                let user = user!
+                DataService.instance.REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if !snapshot.hasChild(user.uid) {
+                        let userData: [String: Any] = ["provider": user.providerID,
+                                                       "email": user.email!]
+                        DataService.instance.createDBUser(uid: user.uid, userData: userData)
+                    }
+                    self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                })
+            }
+        }
+    }
+    
+    func displayErrorAlert(title: String, error: Error) {
+        let alertVC = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
+        window?.rootViewController?.present(alertVC, animated: true, completion: nil)
+    }
 }
 
